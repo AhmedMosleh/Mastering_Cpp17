@@ -1,0 +1,11 @@
+*.exe
+*.vscode
+*.bin
+*.elf
+*.workspace
+*.pdsbak
+*.pdsprj
+*.hex
+*.axf
+*.pdf
+
