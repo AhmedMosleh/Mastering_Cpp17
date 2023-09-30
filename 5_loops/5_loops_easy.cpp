@@ -92,24 +92,25 @@ using namespace std;
 // 	}
 // }
 
-Problem #5: Special Average
-Read integer N, followed by reading N numbers. Print 2 values
-The average of the numbers in odd positions (1st, 3rd, 5th, …)
-The average of the numbers in even positions (2nd, 4th, 6th, …)
-int main() {
-	int N;
-	cin >> N;
-	int e_num = N/2;
-	int o_num = N - e_num;
-	int e_sum = 0, o_sum = 0;
-	int start = 1;
-	while(start <= N) {
-		int num;
-		cin >> num;
-		if(start%2) {o_sum += num;}
-		else {e_sum += num;}
-		start++;
-	}
-	cout << e_sum/e_num << " " << o_sum/o_num;
-}
+
+// Problem #5: Special Average
+// Read integer N, followed by reading N numbers. Print 2 values
+// The average of the numbers in odd positions (1st, 3rd, 5th, …)
+// The average of the numbers in even positions (2nd, 4th, 6th, …)
+// int main() {
+// 	int N;
+// 	cin >> N;
+// 	int e_num = N/2;
+// 	int o_num = N - e_num;
+// 	int e_sum = 0, o_sum = 0;
+// 	int start = 1;
+// 	while(start <= N) {
+// 		int num;
+// 		cin >> num;
+// 		if(start%2) {o_sum += num;}
+// 		else {e_sum += num;}
+// 		start++;
+// 	}
+// 	cout << e_sum/e_num << " " << o_sum/o_num;
+// }
 
