@@ -114,3 +114,71 @@ using namespace std;
 // 	cout << e_sum/e_num << " " << o_sum/o_num;
 // }
 
+// For Loop
+// Read T for number of test cases. For each test case read integer N: number
+// of numbers. Then read N numbers a, b, c, ….. and compute the sum of:
+// int main() {
+//     int T = 0; cin >> T;   
+//     for (int i = 0; i < T; i++) {
+//         int N = 0; cin >> N;
+//         int sum = 0;       
+//         for (int j = 1; j <= N; ++j) {
+//             int mul = 1;
+//             int num = 0; cin >> num;
+//             for (int k = 1; k <= j; ++k) {
+//                 mul *= num;                   
+//             }
+//             sum += mul;
+//         }
+//         cout << sum << endl;
+//     }
+// }
+
+
+// Read N, M, SUM. Find all pairs that has
+// A + B == SUM where:
+// 1 <= A <= N
+// 1 <= B <= M
+// int main() {
+//     int N,M,sum;
+//     cin >> N >> M >> sum;
+//     int cnt = 0;
+//     for (int i = 1; i <= N; i++) {
+//             int j = sum - i;
+//             if (1 <= j && j <= sum)
+//                 cnt++;
+//     }
+    
+//     cout << cnt << endl;
+// }
+
+// Practice: Triples of numbers
+// @todo: 
+// int main() {
+//     int N,M,W;
+//     cin >> N >> M >> W;
+//     int cnt = 0;
+//     for (int i = 1; i <= N; ++i) {
+//         for (int j = i; j <=W ; ++j) {   
+//         }
+//     }
+//     cout << cnt << endl;
+// }
+
+
+// Fibonacci Sequence:
+// int main() {
+//     int n1 = 0,n2 = 1, n3;
+//     int n = 10;
+//     for (int i = 0; i < n; i++) {
+//         n3 = n1+n2;
+//         n1 = n2;
+//         n2 = n3;
+//         cout << n3 << " ";
+//     }
+//     cout << endl;
+// }
+
+
+
+
