@@ -1,5 +1,6 @@
-//5_loops_Super.cpp
+// 5_loops_Super.cpp
 #include <iostream>
+#include <ratio>
 using namespace std;
 
 // // Problem #1: Find NOs
@@ -11,11 +12,10 @@ using namespace std;
 // 		string str = " ";
 // 		cin >> str;
 // 		if (str == "no" || str == "No" || str == "nO" || str == "NO" ||
-// 			str == "on" || str == "oN" || str == "On" || str == "ON")
-// 			cout<<str<<" ";
+// 			str == "on" || str == "oN" || str == "On" || str ==
+// "ON") 			cout<<str<<" ";
 // 	}
 // }
-
 
 // // Problem #2: Reverse number
 // int main() {
@@ -29,7 +29,6 @@ using namespace std;
 // 	}
 // 	cout << rnum << " " << rnum * 3 << endl;
 // }
-
 
 // Problem #3: Multiplication table
 // int main() {
@@ -45,7 +44,6 @@ using namespace std;
 // 		n++;
 // 	}
 // }
-
 
 // Problem #4: Special Sum
 // int main() {
@@ -93,7 +91,6 @@ using namespace std;
 //     }
 // }
 
-
 // Homework 2: Find Special Pairs
 // Count How many X, Y numbers such that
 // X in range [50-300]
@@ -109,47 +106,26 @@ using namespace std;
 //         if (start < i+1) start = i+1;
 //         for (j = start; j <= 400; j++) {
 //             if((i+j)%7 == 0) cnt++;
-//         }   
+//         }
 //     }
 //     cout << cnt << endl;
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Homework 3: Find all quadruples
+// Count how many (a, b, c, d) with following property:
+// Code it once using 4 loops
+// 1 <= a, b, c, d <= 200
+// a+b=c+d
+// int main() {
+//   int cnt{0};
+//   for (int a = 1; a <= 200; a++) {
+//     for (int b = 1; b <= 200; b++) {
+//       for (int c = 1; c <= 200; c++) {
+//         int d = a + b - c;
+//         if (1 <= d && d <= 200)
+//           cnt++;
+//       }
+//     }
+//   }
+//   cout << cnt << endl;
+// }
