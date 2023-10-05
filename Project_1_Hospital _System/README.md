@@ -31,12 +31,13 @@ Key implementation details of the project:
 
 Here are some screenshots of the Hospital System in action:
 
-![Add New Patient](images/add_patient.png)
 *Adding a new patient.*
+![Add New Patient](images/add_patient.png)
 
-![Print All Patients](images/print_patients.png)
 *Printing the list of patients.*
+![Print All Patients](images/print_patients.png)
 
-![Get Next Patient](images/get_next_patient.png)
 *Getting the next patient for consultation.*
+![Get Next Patient](images/get_next_patient.png)
+
 
