@@ -159,7 +159,10 @@ using namespace std;
 //     cin >> N >> M >> W;
 //     int cnt = 0;
 //     for (int i = 1; i <= N; ++i) {
-//         for (int j = i; j <=W ; ++j) {   
+//         for (int j = i; j <=M ; ++j) {   
+//             int k = i+j;
+//             if(1 <= k && k <= W)
+//                 cnt += W-k+1;
 //         }
 //     }
 //     cout << cnt << endl;

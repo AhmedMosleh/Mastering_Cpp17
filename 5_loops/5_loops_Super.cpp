@@ -94,6 +94,26 @@ using namespace std;
 // }
 
 
+// Homework 2: Find Special Pairs
+// Count How many X, Y numbers such that
+// X in range [50-300]
+// Y in range [70-400]
+// X<Y
+// (X+Y) divisible by 7
+// int main() {
+//     int cnt = 0;
+//     int start = 0;
+//     int j = 0;
+//     for (int i = 50; i <=300; i++) {
+//         start = 70;
+//         if (start < i+1) start = i+1;
+//         for (j = start; j <= 400; j++) {
+//             if((i+j)%7 == 0) cnt++;
+//         }   
+//     }
+//     cout << cnt << endl;
+// }
+
 
 
 
