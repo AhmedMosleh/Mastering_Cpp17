@@ -14,30 +14,6 @@ The Hospital System provides the following features:
 
 4. **Exit**: Exit the program gracefully.
 
-## How to Use 🚀
-
-Follow these steps to use the Hospital System:
-
-1. Clone the repository to your local machine:
-
-   ```bash
-   git clone <repository_url>
-   ```
-
-2. Compile the C++ code:
-
-   ```bash
-   g++ hospital_system.cpp -o hospital_system
-   ```
-
-3. Run the executable:
-
-   ```bash
-   ./hospital_system
-   ```
-
-4. Follow the on-screen instructions to perform various operations within the hospital system.
-
 ## Implementation Details 🛠️
 
 Key implementation details of the project:
@@ -50,13 +26,6 @@ Key implementation details of the project:
 
 - Doctors can call the next patient from a specific specialization, and the patient is removed from the queue.
 
-## Contributing 🤝
-
-If you'd like to contribute to this project, feel free to open an issue or submit a pull request. Your contributions are welcome! 🙌
-
-## License 📝
-
-This project is open-source and available under the [MIT License](LICENSE).
 
 ## Screenshots 📸
 
@@ -70,7 +39,4 @@ Here are some screenshots of the Hospital System in action:
 
 ![Get Next Patient](images/get_next_patient.png)
 *Getting the next patient for consultation.*
-
----
-
 
