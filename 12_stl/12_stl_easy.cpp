@@ -1,9 +1,11 @@
 // 12_stl_easy.cpp
+#include <cstdio>
 #include <iostream>
 #include <map>
 #include <queue>
 #include <set>
 #include <stack>
+#include <string>
 #include <unordered_set>
 #include <vector>
 using namespace std;
@@ -112,52 +114,67 @@ using namespace std;
 // 	return vtr.empty();
 // }
 
+int main() {
+	freopen("test.txt", "rt", stdin);
+  int N{};
+  int k{};
+  int cnt{};
+  string name{""};
+  string fname{""};
+  vector<string> vtrname;
+  map<string, vector<string>> mp;
+
+//   cout << "number of triels: ";
+  cin >> N;
+
+  for (int j = 0; j < N;j++) {
+	// cout << "trial: " << j << endl;
+	// cout << "enter num of names: ";
+	cin >> k;
+    for (int i = 0; i < k; i++) {
+	//   cout << "name # " << i << " "; 
+      cin >> name;
+      vtrname.push_back(name);
+    }
+	// cout << "now vtrname = " << endl;
+	// for(auto n : vtrname) { cout << n << " ";} 
+	// cout << endl;
+	fname = "";
+	vector<string> subname;
+	for (int i = 0 ;  i < k ; i++) {
+		if(i != 0)
+			fname += " ";
+		fname += vtrname.at(i);
+		subname.push_back(fname);
+	}
+	// cout << fname << endl;
+	for(auto sub : subname) {cout << sub << endl;} 
+	cout << endl;
+
+	for (int i = 0; i < k; i++) {
+		mp[subname.at(i)].push_back(fname);
+	}
+  }
+
+  int q{};
+  cin >> q;
+  while (q--) {
+	cin >> k;
+	fname = "";
+	for (int i = 0; i < k; i++) {
+		cin >> name;
+		if(i != 0)
+			fname += " ";
+		fname += name;
+	}
+	// cout << fname << endl;
+	for (auto str : mp[fname]) {
+		// cout << str << endl;
+	}
+	// cout << endl;
+  }
+}
+
 // int main() {
-// 	int N {};
-// 	int k {};
-// 	int cnt {};
-// 	string name {""};
-// 	string fname {""};
-// 	vector<string> sname;
-
-// 	cin >> N;
-// 	map<string, vector<string>> mp;
-// 	while(N--) {
-// 		cin >> k;
-// 		cnt = k;
-
-// 		while(cnt--) {
-// 			cin >> name;
-
-// 			sname.push_back(fname);
-// 			fname += " ";
-// 		}
-// 		cnt = k;
-// 		for (int i = 0; i < k; i++) {
-// 			mp[sname.at(i)] = fname;
-// 		}
-// 	}
-
-// 	int q {};
-// 	cin >> q;
-// 	while(q--) {
-// 		cin >> k;
-// 		fname = "";
-// 		while(k--) {
-// 			cin >> name;
-// 			fname += name + " ";
-// 		}
-// 		fname.at(fname.size()-1) = '\0';
-
-// 	}
-// 	cout << mp["ahmed"] << endl;
-// 	cout << mp["ahmed mostafa"] << endl;
-// 	cout << mp["ahmed mostafa mosleh"] << endl;
 
 // }
-
-int main() {
-	vector<int>
-
-	
-}
