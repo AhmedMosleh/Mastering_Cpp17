@@ -114,66 +114,58 @@ using namespace std;
 // 	return vtr.empty();
 // }
 
-int main() {
-	freopen("test.txt", "rt", stdin);
-  int N{};
-  int k{};
-  int cnt{};
-  string name{""};
-  string fname{""};
-  vector<string> vtrname;
-  map<string, vector<string>> mp;
+// int main() {
+// 	freopen("test.txt", "rt", stdin);
+//   int N{};
+//   int k{};
+//   int cnt{};
+//   string name{""};
+//   string fname{""};
+//   vector<string> vtrname;
+//   map<string, vector<string>> mp;
 
-//   cout << "number of triels: ";
-  cin >> N;
+// //   cout << "number of triels: ";
+//   cin >> N;
 
-  for (int j = 0; j < N;j++) {
-	// cout << "trial: " << j << endl;
-	// cout << "enter num of names: ";
-	cin >> k;
-    for (int i = 0; i < k; i++) {
-	//   cout << "name # " << i << " "; 
-      cin >> name;
-      vtrname.push_back(name);
-    }
-	// cout << "now vtrname = " << endl;
-	// for(auto n : vtrname) { cout << n << " ";} 
-	// cout << endl;
-	fname = "";
-	vector<string> subname;
-	for (int i = 0 ;  i < k ; i++) {
-		if(i != 0)
-			fname += " ";
-		fname += vtrname.at(i);
-		subname.push_back(fname);
-	}
-	// cout << fname << endl;
-	for(auto sub : subname) {cout << sub << endl;} 
-	cout << endl;
+//   for (int j = 0; j < N;j++) {
+// 	// cout << "trial: " << j << endl;
+// 	// cout << "enter num of names: ";
+// 	cin >> k;
+// 	fname = "";
+//     for (int i = 0; i < k; i++) {
+// 	//   cout << "name # " << i << " "; 
+//       cin >> name;
+// 	  if(i)
+// 	  	fname += " ";
+// 	fname += name;
+//       vtrname.push_back(fname);
+//     }
+// 	// for(auto n : vtrname) {cout << n << " ";};
+// 	// cout << endl;
+// 	for (int i = 0; i < k; i++) {
+// 		mp[vtrname.at(i)].push_back(fname);
+// 	}
+// 	vtrname.clear();
+//   }
 
-	for (int i = 0; i < k; i++) {
-		mp[subname.at(i)].push_back(fname);
-	}
-  }
-
-  int q{};
-  cin >> q;
-  while (q--) {
-	cin >> k;
-	fname = "";
-	for (int i = 0; i < k; i++) {
-		cin >> name;
-		if(i != 0)
-			fname += " ";
-		fname += name;
-	}
-	// cout << fname << endl;
-	for (auto str : mp[fname]) {
-		// cout << str << endl;
-	}
-	// cout << endl;
-  }
-}
+//   int q{};
+//   cin >> q;
+//   while (q--) {
+// 	cin >> k;
+// 	fname = "";
+// 	for (int i = 0; i < k; i++) {
+// 		cin >> name;
+// 		if(i != 0)
+// 			fname += " ";
+// 		fname += name;
+// 	}
+// 	// cout << fname << endl;
+// 	for (auto str : mp[fname]) {
+// 		cout << str << endl;
+// 	}
+// 	cout << endl;
+//   }
+// }
 
 // int main() {
 
