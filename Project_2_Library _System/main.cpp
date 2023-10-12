@@ -57,8 +57,40 @@ void library::add_book() {
     cout << "full!!!!\n";
   }
 }
-void library::search_by_prefix() {}
-void library::print_who_borr_name() {}
+void library::search_by_prefix() {
+  string pre = "";
+  cout << "Enter book name prefix: ";
+  cin >> pre;
+  bool is_ok = true;
+  bool is_found = false;
+  for (int i = 0; i < num_books; i++) {
+    for (int j = 0; j < pre.size(); j++) {
+
+      if (lib_books[i].name[j] != pre[j]) {
+        is_ok = false;
+        break;
+      }
+    }
+    if (is_ok) {
+      cout << lib_books[i].name << endl;
+      is_found = true;
+    }
+  }
+  if (!is_found)
+    cout << "No books with such prefix\n";
+}
+void library::print_who_borr_name() {
+  string bname;
+  cout << "Enter book name: ";
+  cin >> bname;
+  for (int i = 0; i < num_users; i++) {
+    for (int j = 0; j < lib_users[i].num_borr; j++) {
+      if (lib_users[i].borr_books[j].name == bname) {
+        cout << lib_users[i].name << endl;
+      }
+    }
+  }
+}
 
 void library::print_lib_id() {
   sort(lib_books, lib_books + num_books, compare_books_id);

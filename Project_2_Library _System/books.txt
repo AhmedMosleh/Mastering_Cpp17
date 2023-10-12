@@ -36,6 +36,20 @@ noha math1
 noha math2
 4
 9
+2
+ma
+2
+pro
+2 
+machine
+3
+math1
+3
+math2
+3
+machine
+4
+9
 8
 mostafa math1
 4
