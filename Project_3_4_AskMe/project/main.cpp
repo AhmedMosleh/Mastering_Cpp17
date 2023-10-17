@@ -14,7 +14,7 @@ string fmeta_path = "./q/q_meta_data.txt";
 fstream fmeta(fmeta_path.c_str(), status);
 
 bool loged_in{0};
-int my_id{55};
+int my_id{-1};
 
 //**************************************
 //********* user struct ***************
@@ -145,8 +145,13 @@ void ask_fm::login() {
 
   // 3. if the there is a file name then read the passward and compar2e:
   int pw_cmp{};
+  int u_id{-1};
+  bool aq{};
   fin >> pw_cmp;
+  fin >> aq;
+  fin >> u_id;
   if (pw == pw_cmp) {
+    my_id = u_id;
     cout << "Your're welcome!\n";
     loged_in = true;
   }
@@ -171,7 +176,6 @@ void ask_fm::print_q_from_me() {}
 void ask_fm::answer_q() {}
 void ask_fm::delete_q() {}
 
-
 void ask_fm::ask_q() {
   int to_id{};
   cout << "Enter User id or -1 to cancel: ";
@@ -185,13 +189,13 @@ void ask_fm::ask_q() {
     cout << "the user id isn't correct\n";
     return;
   }
-  
+
   // TODO:
   // 2. if the user exist, check if he accept anonymous q?
   bool is_aq = is_user_aq();
   if (is_aq) {
     cout << "Note: Anonymous questions are not allowed for this user\n";
-    return;
+    
   }
 
   // 3. thread q:
@@ -200,23 +204,28 @@ void ask_fm::ask_q() {
   cin >> q_id;
 
   // TODO:
-  // 4. if it is thread q, check if the q exist:
-  if(q_id != -1) {
+  // 4. if it is thread question, check if the question exist:
+  if (q_id != -1) {
     bool is_q = is_q_exist();
   }
 
-
   // 5. if the q isn't thread, read the q (and q id for first version)
-  string q {""};
+  string q{""};
   cin.ignore();
   getline(cin, q);
   cin >> q_id;
 
-  // 6. 
-  
-
-
-  //
+  // 6. save the question in a new file with this formate
+  // send-from-id_send-to-id_question-id, Ex: 55_11_101 then :
+  // 55  => user how sends the q.
+  // 11  => user how recives the q.
+  // 101 => the q id
+  cout << "./q/"+to_string(my_id)+"_"+to_string(to_id)+"_"+to_string(q_id) << endl;
+  ofstream fout("./q/"+to_string(my_id)+"_"+to_string(to_id)+"_"+to_string(q_id));
+  fout << "Q: " << q << endl;
+  fout.close();
+  // 7. save the meta data in this file q_meta_data.txt
+  fmeta << q_id << " " << my_id << " " << to_id << endl;
 }
 void ask_fm::list_users() {}
 void ask_fm::feed() {}

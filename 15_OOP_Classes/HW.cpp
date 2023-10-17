@@ -28,40 +28,67 @@ using namespace std;
 // Homework 2: Guess me!
 // 1) What are the possible ways to finish Class C
 // constructor?
-// 2) How many times ClassA Constructor will be
-// called?
-// Why?
+// 2) How many times ClassA Constructor will be called? Why?
+
 // Give a tip for the coder
+// provid defualt constarctor. 
 
-class A {
-public:
-  A() { cout << "A constractor\n"; }
-};
+// class A {
+// public:
+//   A() { cout << "A constractor\n"; }
+// };
 
-class B {
-  A aa;
-  int x;
+// class B {
+//   A aa;
+//   int x;
 
-public:
-  B(int x) {
-    this->aa = A();
-    this->x = x;
-  }
-};
+// public:
+//   B(int x) {
+//     this->aa = A();
+//     this->x = x;
+//   }
+// };
 
-class C {
-  int &y;
-  B bb;
+// class C {
+//   int &y;
+//   B bb;
 
-public:
-    C(int &y,const B &bb) : y(y),bb(bb) {
+// public:
+//     C(int &y,const B &bb) : y(y),bb(bb) {
 
-    }
+//     }
 
-};
+// };
 
-int main() {
-    int hello = 10;
-    B b(5);
-    C cc(hello,b);
-}
+// int main() {
+//     int hello = 10;
+//     B b(5);
+//     C cc(hello,b);
+// }
+
+
+// Homework 3: Const & In constructor
+// In a recent code review, senior TL
+// asked you to change the constructor
+// to use const and &
+// Why do you think so?
+
+
+
+// Homework 4: Validations!
+// Figure out one bug in this code
+// Fix it
+// the constractor must be in public section to enable of decleration.
+
+
+
+
+// Provide a tip for the coder!
+// use delegation.
+
+// Figure out another potential bug
+// Provide a tip for the coder!
+// provide a defualt constractor.
+
+
+
