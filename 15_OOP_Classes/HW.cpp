@@ -92,3 +92,14 @@ using namespace std;
 
 
 
+
+// Homework 5: Time!
+// Identify 2 changes for code clarity
+// Identify a bug
+// in minutes function the secondes / 60 is missing;
+
+// Identify 2 code duplications
+// Identify missing inputs
+// verifications (user mistakes)
+
+
