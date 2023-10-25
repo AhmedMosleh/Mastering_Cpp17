@@ -10,6 +10,7 @@ using namespace std;
 #define MAX_USER 10
 
 auto status = ios::in | ios::out | ios::app;
+auto trunc_status = ios::in | ios::out | ios::trunc;
 string fmeta_path = "./q/q_meta_data.txt";
 
 
@@ -182,12 +183,14 @@ void ask_fm::sign_up() {
 
 
 // 1:
-void ask_fm::print_q_to_me() {}
+void ask_fm::print_q_to_me() {
+  
+}
 
 // 2:
 void ask_fm::print_q_from_me() {}
 
-// 3:
+// 3:done
 void ask_fm::answer_q() {
   // 1. take the question id from the user:
   int q_id {};
@@ -228,16 +231,33 @@ void ask_fm::answer_q() {
 
   // 4. open the file and read q and answer if there:
   string fh_path = "./q/"+to_string(q_from)+"_"+to_string(q_to)+"_"+to_string(q_id);
-  cout << fh_path << endl;
-  fstream fh(fh_path,status);
+  ifstream ifh(fh_path); // input file hundler.
 
   // 5. read the q and answer if there: 
   string question, answer;
-  getline(fh,question);
-  getline(fh,answer);
+  getline(ifh,question);
+  getline(ifh,answer);
   cout << question << endl << answer << endl;
 
+  ifh.close();
+
+  // 6. check if the q isn't answered before:
+  if (answer[0] == 'A')
+  {
+    cout << "!!!Warning: Aleady answered. Answer will be updated!!!\n";
+  }
+
+  // 7. update the answer
+  cout << "** Enter your answer:";
+  cin.ignore();
+  getline(cin, answer);
+
+  ofstream ofh(fh_path); // output file hundler.
+  ofh.clear();
+  ofh << question << endl << "A: " + answer;
+  ofh.close();
   fmeta.close();
+  
 }
 
 // 4:
