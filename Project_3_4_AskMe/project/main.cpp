@@ -143,26 +143,26 @@ void ask_fm::login() {
   }
   // @TODO: return to main menu if the file doesn't exist.
 
-  // 3. if the there is a file name then read the passward and compar2e:
+  // 3. if there is a file name then read the passward and compare:
   int pw_cmp{};
   int u_id{-1};
   bool aq{};
-  fin >> pw_cmp;
-  fin >> aq;
-  fin >> u_id;
+  fin >> pw_cmp;  // read password.
+  fin >> aq;      // the user accept anonymous questions or not.
+  fin >> u_id;    // user id.
   if (pw == pw_cmp) {
     my_id = u_id;
     cout << "Your're welcome!\n";
     loged_in = true;
   }
-  // @TODO: return to main menu if the file doesn't excist.
+  // @TODO: return to main menu if the password is wrong.
   fin.close();
 }
 
 void ask_fm::sign_up() {
   // 1. read user name and password:
-
   temp.read_data();
+  // 2. create file for this user with this format: password\nanonymous\nuserid.
   ofstream fout("./u/" + temp.u_name);
   fout << temp.password << endl;
   fout << temp.anonymous << endl;
