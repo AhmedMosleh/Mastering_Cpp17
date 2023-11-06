@@ -182,13 +182,90 @@ void ask_fm::sign_up() {
 }
 
 
-// 1:
+// 1: done
 void ask_fm::print_q_to_me() {
-  
+  // 1. read the meta data file and check if this q send to me:
+  // then save it into vector 
+  vector<string> ques_to_me;
+  vector<int> ques_ids; // save q id and from id;
+  vector<int> ques_form;
+  string line;
+  string q_from {}; // quetion from who?
+  string q_to {}; // quetion to who?
+  string q_id {}; // to check quetion id;
+
+  fstream fmeta(fmeta_path.c_str(), status);
+  fmeta.seekg(0); // Reset the file pointer to the beginning of the file
+  while(getline(fmeta,line)) {
+    istringstream iss(line);
+    iss >> q_id >> q_from >> q_to;
+    if(stoi(q_to) == my_id)
+    {
+      string str = q_from+"_"+q_to+"_"+q_id;
+      ques_to_me.push_back(str);
+      ques_ids.push_back(stoi(q_id));
+      ques_form.push_back(stoi(q_from));
+
+      
+    } 
+  }
+
+  // 2. open and print each q file:
+  for (int i = 0; i < ques_form.size(); i++) {
+    ifstream ifh("./q/"+ques_to_me[i]);
+    string line;
+    cout << "*** Question Id (" << ques_ids[i] << ") from user id (" << ques_form[i] << ") ***" <<  endl; 
+    while (getline(ifh,line)) {
+       
+      cout << line << endl;
+    }
+    cout << endl;
+    ifh.close();
+  }
+
 }
 
 // 2:
-void ask_fm::print_q_from_me() {}
+void ask_fm::print_q_from_me() {
+    // 1. read the meta data file and check if this q send to me:
+  // then save it into vector 
+  vector<string> ques_to_me;
+  vector<int> ques_ids; // save q id and from id;
+  vector<int> ques_to;
+  string line;
+  string q_from {}; // quetion from who?
+  string q_to {}; // quetion to who?
+  string q_id {}; // to check quetion id;
+
+  fstream fmeta(fmeta_path.c_str(), status);
+  fmeta.seekg(0); // Reset the file pointer to the beginning of the file
+  while(getline(fmeta,line)) {
+    istringstream iss(line);
+    iss >> q_id >> q_from >> q_to;
+    if(stoi(q_from) == my_id)
+    {
+      string str = q_from+"_"+q_to+"_"+q_id;
+      ques_to_me.push_back(str);
+      ques_ids.push_back(stoi(q_id));
+      ques_to.push_back(stoi(q_to));
+
+      
+    } 
+  }
+
+  // 2. open and print each q file:
+  for (int i = 0; i < ques_to.size(); i++) {
+    ifstream ifh("./q/"+ques_to_me[i]);
+    string line;
+    cout << "*** Question Id (" << ques_ids[i] << ") to user id (" << ques_to[i] << ") ***" <<  endl; 
+    while (getline(ifh,line)) {
+       
+      cout << line << endl;
+    }
+    cout << endl;
+    ifh.close();
+  }
+}
 
 // 3:done
 void ask_fm::answer_q() {
@@ -319,6 +396,7 @@ void ask_fm::ask_q() {
   // 7. save the meta data in this file q_meta_data.txt
   fstream fmeta(fmeta_path.c_str(), status);
   fmeta << q_id << " " << my_id << " " << to_id << endl;
+  fmeta.close();
 }
 void ask_fm::list_users() {}
 void ask_fm::feed() {}
