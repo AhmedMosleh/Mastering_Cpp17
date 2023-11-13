@@ -1,6 +1,6 @@
 
-# ifndef _CUSTOMER_
-# define _CUSTOMER_
+# ifndef _ADMIN_
+# define _ADMIN_
 #include <iostream>
 
 
