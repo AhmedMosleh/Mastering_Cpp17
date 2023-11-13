@@ -5,11 +5,7 @@
 void BookReaderView::run() {
     mainLogin();
     loggingMenu();
-    viewMenu();
-
-
-
-
+    viewMainMenu();
 }
 
 void BookReaderView::mainLogin() {
@@ -35,15 +31,6 @@ void BookReaderView::loggingMenu() {
     }
 }
 
-void BookReaderView::viewMenu() {
-    if(userType == 1) {
-        customerView();
-    }
-    else if (userType == 2) {
-        adminView();
-    }
-}
-
 void BookReaderView::login() {
     std::cout << "Enter user name (no spaces): ";
 
@@ -62,7 +49,17 @@ void BookReaderView::signUp() {
 }
 
 
-void BookReaderView::customerView() {
+
+bool BookReaderView::viewMainMenu() {
+    if(userType == 1) {
+        customerViewMenu();
+    }
+    else if (userType == 2) {
+        adminViewMenu();
+    }
+}
+
+bool BookReaderView::customerViewMenu() {
     std::cout << "Hello " << userName << " | Customer View" << std::endl;
     
     while (true) {
@@ -80,21 +77,22 @@ void BookReaderView::customerView() {
                 viewProfile();
                 break;
             case 2:
-                listReadingHistory();
+                listReadingHistoryMenu();
                 break;
             case 3:
-                listBooks();
+                listBooksMenu();
                 break;
             case 4:
                 // @TODO: logout
-                return;
+                is_logout = 1;
+                return is_logout;
                 break;
         }       
     }
 
 };
 
-void BookReaderView::adminView() {
+bool BookReaderView::adminViewMenu() {
     std::cout << "Hello " << userName << " | Admin View" << std::endl;
 
     while(true) {
@@ -115,7 +113,8 @@ void BookReaderView::adminView() {
                 break;
             case 3:
                 // @TODO: logout
-                return;
+                is_logout = 1;
+                return 1;
                 break;
         }
     }
@@ -128,7 +127,7 @@ void BookReaderView::viewProfile() {
               << "User Name: " << "....." << std::endl;
 }
 
-void BookReaderView::listBooks() {
+void BookReaderView::listBooksMenu() {
     std::cout << "Our current book collection: " << std::endl;
 
     // @TODO: print available books
@@ -139,9 +138,27 @@ void BookReaderView::listBooks() {
     // @TODO: select a book
     int booknum {};
     std::cin >> booknum;
+   
+}
 
+void BookReaderView::listReadingHistoryMenu() {
+    // @TODO: cout the sessions 
+    std::cout << "@coutthesessions" << std::endl;
 
-    // @TODO: create new session 
+    std::cout << "Which session to open?" << std::endl;
+
+    // @TODO:
+    std::cout << "Enter number in range 1 - " << "@numberofsessions" << " : ";
+    int session_num {};
+    std::cin >> session_num;
+
+    // @TODO: open the session.
+}
+
+void BookReaderView::openReadingSession() {
+    // @TODO: check if the session exists or not?
+    // @TODO: open session if exists.
+    // @TODO: or create new session 
     std::cout << "Current Page: " << "@currentpage" << "/" << "@totalnumberofbages" << std::endl;
     std::cout << "@pagecontent" << std::endl;
 
@@ -172,25 +189,7 @@ void BookReaderView::listBooks() {
                 break;
         }
     }
-
-   
 }
-
-void BookReaderView::listReadingHistory() {
-    // @TODO: cout the sessions 
-    std::cout << "@coutthesessions" << std::endl;
-
-    std::cout << "Which session to open?" << std::endl;
-
-    // @TODO:
-    std::cout << "Enter number in range 1 - " << "@numberofsessions" << " : ";
-    int session_num {};
-    std::cin >> session_num;
-
-    // @TODO: open the session.
-}
-
-
 
 void BookReaderView::addBook() {
     std::cout << "Enter ISBN: ";

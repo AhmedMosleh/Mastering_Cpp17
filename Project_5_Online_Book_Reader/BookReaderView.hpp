@@ -2,7 +2,7 @@
 # define _BOOKREADERVIEW_
 #include <iostream>
 #include <vector>
-// #include "BookReaderModel.hpp"
+#include "BookReaderModel.hpp"
 
 
 
@@ -12,6 +12,7 @@ class BookReaderView {
     int userType;
     int loggingType;
     int menuOption;
+    bool is_logout;
     //could change:
     std::string userName;
     public:
@@ -21,17 +22,18 @@ class BookReaderView {
     void mainLogin();
     // select sign up/login
     void loggingMenu();
-    void viewMenu();
-
     void login();
     void signUp();
 
-    void customerView();
-    void adminView();
+    // admin/customer menu
+    bool viewMainMenu();
+    bool customerViewMenu();
+    bool adminViewMenu();
 
     void viewProfile();
-    void listReadingHistory();
-    void listBooks();
+    void listReadingHistoryMenu();
+    void listBooksMenu();
+    void openReadingSession();
     void addBook();
 
     void run();
@@ -40,6 +42,8 @@ class BookReaderView {
 
 };
 
-
+// loging mechanism:
+// mainLogin() > (loggingMenu() => login() ) > (viewMainMenu => customerViewMenu()) => listReadingHistoryMenu()
+//                              => signup()                  => adminViewMenu()     => listBooksMenu()
 
 # endif

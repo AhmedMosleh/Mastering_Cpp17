@@ -16,6 +16,11 @@ OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 # Name of the executable
 TARGET := app
 
+run:
+	@./bin/app
+run1: clean all
+	@./bin/app
+
 all: $(BIN_DIR)/$(TARGET)
 
 # Link the object files to generate the executable
