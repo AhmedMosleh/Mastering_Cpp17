@@ -3,73 +3,76 @@
 
 
 void BookReaderView::run() {
-    mainLogin();
-    loggingMenu();
-    viewMainMenu();
+    mainMenu();
 }
 
-void BookReaderView::mainLogin() {
-    std::cout << "Please select user type" << std::endl
-                << "1. Customer" << std::endl
-                << "2. Admin" << std::endl;
-    std::cout << "Enter number in range 1-2: "; 
-    std::cin >> userType;
-}
 
-void BookReaderView::loggingMenu() {
-    std::cout<< "Menu:" << std::endl
-             << "1. Login" << std::endl
-             << "2. Sign up" << std::endl;
-    std::cout << "Enter number in range 1-2: "; 
-    std::cin >> loggingType;
 
-    if(loggingType == 1) {
-        login();
-    }
-    else if (loggingType == 2) {
-        signUp();
+void BookReaderView::mainMenu() {
+    while (true) {
+        // 1. cutomer/admin menu
+        std::cout << "****************** USER MENU ******************" << std::endl
+                    << "|___ 1. Customer" << std::endl
+                    << "|___ 2. Admin" << std::endl;
+        std::cout << "- Enter number in range 1-2: "; 
+        std::cin >> userType;
+        // 2. sign up/login menu
+        std::cout<< "****************** LOGING MENU ******************" << std::endl
+                    << "|___ 1. Login" << std::endl
+                    << "|___ 2. Sign up" << std::endl;
+        std::cout << "- Enter number in range 1-2: "; 
+        std::cin >> loggingType;
+
+        if(loggingType == 1) {
+            login();
+        }
+        else if (loggingType == 2) {
+            signUp();
+        }
+        // 3. user menu (admin menu or customer menu)
+        if(userType == 1) {
+            customerViewMenu();
+        }
+        else if (userType == 2) {
+            adminViewMenu();
+        }
     }
 }
 
 void BookReaderView::login() {
-    std::cout << "Enter user name (no spaces): ";
+    std::cout << "- Enter user name (no spaces): ";
 
-    std::cout << "Enter password (no spaces): ";
+    std::cout << "- Enter password (no spaces): ";
 
 }
 
 void BookReaderView::signUp() {
-    std::cout << "Enter user name (no spaces): ";
+    std::cout << "- Enter user name (no spaces): ";
 
-    std::cout << "Enter password (no spaces): ";
+    std::cout << "- Enter password (no spaces): ";
     
-    std::cout << "Enter name (no spaces): ";
+    std::cout << "- Enter name (no spaces): ";
 
-    std::cout << "Enter email (no spaces): ";
+    std::cout << "- Enter email (no spaces): ";
 }
 
 
 
-bool BookReaderView::viewMainMenu() {
-    if(userType == 1) {
-        customerViewMenu();
-    }
-    else if (userType == 2) {
-        adminViewMenu();
-    }
+void BookReaderView::userMainMenu() {
+
 }
 
-bool BookReaderView::customerViewMenu() {
+void BookReaderView::customerViewMenu() {
     std::cout << "Hello " << userName << " | Customer View" << std::endl;
     
     while (true) {
-        std::cout << "Menu:" << std::endl
-            << "1. View Profile" << std::endl
-            << "2. List & Select from My Reading History" << std::endl
-            << "3. List & Select from Available Books" << std::endl
-            << "4. Logout" << std::endl;
+        std::cout << std::endl << "****************** CUSTOMER MENU ******************" << std::endl
+            << "|___ 1. View Profile" << std::endl
+            << "|___ 2. List & Select from My Reading History" << std::endl
+            << "|___ 3. List & Select from Available Books" << std::endl
+            << "|___ 4. Logout" << std::endl;
 
-        std::cout << "Enter number in range 1-4: "; 
+        std::cout << "- Enter number in range 1-4: "; 
         std::cin >> menuOption;
 
         switch (menuOption) {
@@ -85,23 +88,23 @@ bool BookReaderView::customerViewMenu() {
             case 4:
                 // @TODO: logout
                 is_logout = 1;
-                return is_logout;
+                return;
                 break;
         }       
     }
 
 };
 
-bool BookReaderView::adminViewMenu() {
+void BookReaderView::adminViewMenu() {
     std::cout << "Hello " << userName << " | Admin View" << std::endl;
 
     while(true) {
-        std::cout << "Menu:" << std::endl
-            << "1. View Profile" << std::endl
-            << "2. Add Book" << std::endl
-            << "3. Logout" << std::endl;
+        std::cout << std::endl << "****************** ADMIN MENU ******************" << std::endl
+            << "|___ 1. View Profile" << std::endl
+            << "|___ 2. Add Book" << std::endl
+            << "|___ 3. Logout" << std::endl;
 
-        std::cout << "Enter number in range 1-3: "; 
+        std::cout << "- Enter number in range 1-3: "; 
         std::cin >> menuOption;
 
         switch (menuOption) {
@@ -114,7 +117,7 @@ bool BookReaderView::adminViewMenu() {
             case 3:
                 // @TODO: logout
                 is_logout = 1;
-                return 1;
+                return;
                 break;
         }
     }
@@ -122,9 +125,9 @@ bool BookReaderView::adminViewMenu() {
 };
 
 void BookReaderView::viewProfile() {
-    std::cout << "Name: " << "....." << std::endl
-              << "Email: " << "...." << std::endl
-              << "User Name: " << "....." << std::endl;
+    std::cout << "|___ Name: " << "....." << std::endl
+              << "|___ Email: " << "...." << std::endl
+              << "|___ User Name: " << "....." << std::endl;
 }
 
 void BookReaderView::listBooksMenu() {
@@ -133,11 +136,14 @@ void BookReaderView::listBooksMenu() {
     // @TODO: print available books
 
     std::cout << "Which book to read?" << std::endl;
-    std::cout << "Enter number in range 1 - " << "@numberofbooks" << ": ";
+    std::cout << "- Enter number in range 1 - " << "@numberofbooks" << ": ";
 
     // @TODO: select a book
     int booknum {};
     std::cin >> booknum;
+
+    // @TODO: open reading session
+    openReadingSession();
    
 }
 
@@ -148,7 +154,7 @@ void BookReaderView::listReadingHistoryMenu() {
     std::cout << "Which session to open?" << std::endl;
 
     // @TODO:
-    std::cout << "Enter number in range 1 - " << "@numberofsessions" << " : ";
+    std::cout << "- Enter number in range 1 - " << "@numberofsessions" << " : ";
     int session_num {};
     std::cin >> session_num;
 
@@ -164,10 +170,11 @@ void BookReaderView::openReadingSession() {
 
 
     while (true) {
-        std::cout << "Menu: " << std::endl
-                << "1. Next Page" << std::endl
-                << "2. Pervious Page" << std::endl
-                << "3. Stop Reading" << std::endl;
+        std::cout << "*** BOOK MENU ***" << std::endl
+                << "|___ 1. Next Page" << std::endl
+                << "|___ 2. Pervious Page" << std::endl
+                << "|___ 3. Stop Reading" << std::endl;
+        std::cout << std::endl << "- Enter number in range 1 - 3" << std::endl;
         int book_menu_opt {};
         std::cin >> book_menu_opt;
     
@@ -192,20 +199,20 @@ void BookReaderView::openReadingSession() {
 }
 
 void BookReaderView::addBook() {
-    std::cout << "Enter ISBN: ";
+    std::cout << "- Enter ISBN: ";
     // std::cin >>
 
-    std::cout << "Enter Title: ";
+    std::cout << "- Enter Title: ";
     // std::cin >>
 
-    std::cout << "Enter Author Name: ";
+    std::cout << "- Enter Author Name: ";
     // std::cin >>
 
-    std::cout << "Enter How many pages: ";
+    std::cout << "- Enter How many pages: ";
     // std::cin >>
 
     // for loop:
-    std::cout << "Enter page # " << "@i" << ": ";
+    std::cout << "- Enter page # " << "@i" << ": ";
     // std::cin >>
     
 }

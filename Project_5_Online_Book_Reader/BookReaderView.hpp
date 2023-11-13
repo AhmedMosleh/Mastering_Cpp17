@@ -18,17 +18,14 @@ class BookReaderView {
     public:
     // BookReaderView();
     
-    // select cutomer/admin logging
-    void mainLogin();
+    void mainMenu();
     // select sign up/login
-    void loggingMenu();
     void login();
     void signUp();
-
     // admin/customer menu
-    bool viewMainMenu();
-    bool customerViewMenu();
-    bool adminViewMenu();
+    void userMainMenu();
+    void customerViewMenu();
+    void adminViewMenu();
 
     void viewProfile();
     void listReadingHistoryMenu();
