@@ -1,0 +1,24 @@
+
+# ifndef _CUSTOMER_
+# define _CUSTOMER_
+#include <iostream>
+
+
+class Admin { 
+    private:
+    std::string userName;
+    std::string name;
+    std::string email;
+    int password;
+
+
+    public:
+    Admin();
+    
+    void viewProfile();
+
+};
+
+
+
+# endif
