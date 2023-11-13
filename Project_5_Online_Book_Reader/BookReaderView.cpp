@@ -64,54 +64,62 @@ void BookReaderView::signUp() {
 
 void BookReaderView::customerView() {
     std::cout << "Hello " << userName << " | Customer View" << std::endl;
-    std::cout << "Menu:" << std::endl
-        << "1. View Profile" << std::endl
-        << "2. List & Select from My Reading History" << std::endl
-        << "3. List & Select from Available Books" << std::endl
-        << "4. Logout" << std::endl;
+    
+    while (true) {
+        std::cout << "Menu:" << std::endl
+            << "1. View Profile" << std::endl
+            << "2. List & Select from My Reading History" << std::endl
+            << "3. List & Select from Available Books" << std::endl
+            << "4. Logout" << std::endl;
 
-    std::cout << "Enter number in range 1-4: "; 
-    std::cin >> menuOption;
+        std::cout << "Enter number in range 1-4: "; 
+        std::cin >> menuOption;
 
-    switch (menuOption) {
-        case 1:
-            viewProfile();
-            break;
-        case 2:
-            listReadingHistory();
-            break;
-        case 3:
-            listBooks();
-            break;
-        case 4:
-            // @TODO: logout
-            return;
-            break;
+        switch (menuOption) {
+            case 1:
+                viewProfile();
+                break;
+            case 2:
+                listReadingHistory();
+                break;
+            case 3:
+                listBooks();
+                break;
+            case 4:
+                // @TODO: logout
+                return;
+                break;
+        }       
     }
+
 };
 
 void BookReaderView::adminView() {
     std::cout << "Hello " << userName << " | Admin View" << std::endl;
-    std::cout << "Menu:" << std::endl
-        << "1. View Profile" << std::endl
-        << "2. Add Book" << std::endl
-        << "3. Logout" << std::endl;
 
-    std::cout << "Enter number in range 1-3: "; 
-    std::cin >> menuOption;
+    while(true) {
+        std::cout << "Menu:" << std::endl
+            << "1. View Profile" << std::endl
+            << "2. Add Book" << std::endl
+            << "3. Logout" << std::endl;
 
-    switch (menuOption) {
-        case 1:
-            viewProfile();
-            break;
-        case 2:
-            addBook();
-            break;
-        case 3:
-            // @TODO: logout
-            return;
-            break;
+        std::cout << "Enter number in range 1-3: "; 
+        std::cin >> menuOption;
+
+        switch (menuOption) {
+            case 1:
+                viewProfile();
+                break;
+            case 2:
+                addBook();
+                break;
+            case 3:
+                // @TODO: logout
+                return;
+                break;
+        }
     }
+
 };
 
 void BookReaderView::viewProfile() {

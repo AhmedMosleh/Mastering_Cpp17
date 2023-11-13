@@ -2,20 +2,20 @@
 # define _BOOKREADERVIEW_
 #include <iostream>
 #include <vector>
-#include "BookReaderModel.hpp"
+// #include "BookReaderModel.hpp"
 
 
 
 class BookReaderView { 
     private:
-    BookReaderModel book_reader_model;
+    // BookReaderModel book_reader_model;
     int userType;
     int loggingType;
     int menuOption;
     //could change:
     std::string userName;
     public:
-    BookReaderView();
+    // BookReaderView();
     
     // select cutomer/admin logging
     void mainLogin();
