@@ -1,6 +1,10 @@
 #include "BookReaderView.hpp"
+#include "BookReaderModel.hpp"
 #include <functional>
 
+BookReaderView::BookReaderView(): customer_user(nullptr), admin_user(nullptr) {
+
+}
 
 void BookReaderView::run() {
     mainMenu();
@@ -16,6 +20,7 @@ void BookReaderView::mainMenu() {
                     << "|___ 2. Admin" << std::endl;
         std::cout << "- Enter number in range 1-2: "; 
         std::cin >> userType;
+
         // 2. sign up/login menu
         std::cout<< "****************** LOGING MENU ******************" << std::endl
                     << "|___ 1. Login" << std::endl
@@ -29,6 +34,7 @@ void BookReaderView::mainMenu() {
         else if (loggingType == 2) {
             signUp();
         }
+
         // 3. user menu (admin menu or customer menu)
         if(userType == 1) {
             customerViewMenu();
@@ -40,20 +46,60 @@ void BookReaderView::mainMenu() {
 }
 
 void BookReaderView::login() {
+    std::string str_temp {""};
+    int pws {};
     std::cout << "- Enter user name (no spaces): ";
-
+    std::cin >> str_temp;
     std::cout << "- Enter password (no spaces): ";
+    std::cin >> pws;
+
+    
+    if(userType == 1) {
+        customerLogin(str_temp, pws);
+    }
+    else {
+        adminLogin(str_temp, pws);
+    }
+
+}
+
+void BookReaderView::customerLogin(std::string str_temp,int pws) {
+    customer_user = book_reader_model.customerLogin(str_temp, pws);
+    if(customer_user == nullptr) {
+        std::cout << "* NOT FOUND!!" << std::endl;
+    }
+}
+void BookReaderView::customerSignUp() {
+
+}
+void BookReaderView::adminLogin(std::string str_temp,int pws) {
+
+}
+void BookReaderView::adminSignUp() {
 
 }
 
 void BookReaderView::signUp() {
+    std::string str_temp {""};
+    int temp {};
     std::cout << "- Enter user name (no spaces): ";
+    std::cin >> str_temp;
+    temp_customer.setUserName(str_temp);
 
     std::cout << "- Enter password (no spaces): ";
-    
+    std::cin >> temp;
+    temp_customer.setPassword(temp);  
+
     std::cout << "- Enter name (no spaces): ";
+    std::cin >> str_temp;
+    temp_customer.setName(str_temp);
 
     std::cout << "- Enter email (no spaces): ";
+    std::cin >> str_temp;
+    temp_customer.setEmail(str_temp);
+
+    book_reader_model.addCustomer(temp_customer);
+    customerLogin(temp_customer.getUserName(),temp);
 }
 
 
@@ -63,7 +109,7 @@ void BookReaderView::userMainMenu() {
 }
 
 void BookReaderView::customerViewMenu() {
-    std::cout << "Hello " << userName << " | Customer View" << std::endl;
+    std::cout << "* Hello " << customer_user->getName() << " | Customer View" << std::endl;
     
     while (true) {
         std::cout << std::endl << "****************** CUSTOMER MENU ******************" << std::endl
@@ -96,7 +142,7 @@ void BookReaderView::customerViewMenu() {
 };
 
 void BookReaderView::adminViewMenu() {
-    std::cout << "Hello " << userName << " | Admin View" << std::endl;
+    std::cout << "* Hello " << userName << " | Admin View" << std::endl;
 
     while(true) {
         std::cout << std::endl << "****************** ADMIN MENU ******************" << std::endl
@@ -131,11 +177,11 @@ void BookReaderView::viewProfile() {
 }
 
 void BookReaderView::listBooksMenu() {
-    std::cout << "Our current book collection: " << std::endl;
+    std::cout << "* Our current book collection: " << std::endl;
 
     // @TODO: print available books
 
-    std::cout << "Which book to read?" << std::endl;
+    std::cout << "* Which book to read?" << std::endl;
     std::cout << "- Enter number in range 1 - " << "@numberofbooks" << ": ";
 
     // @TODO: select a book
@@ -151,7 +197,7 @@ void BookReaderView::listReadingHistoryMenu() {
     // @TODO: cout the sessions 
     std::cout << "@coutthesessions" << std::endl;
 
-    std::cout << "Which session to open?" << std::endl;
+    std::cout << "* Which session to open?" << std::endl;
 
     // @TODO:
     std::cout << "- Enter number in range 1 - " << "@numberofsessions" << " : ";
@@ -165,7 +211,7 @@ void BookReaderView::openReadingSession() {
     // @TODO: check if the session exists or not?
     // @TODO: open session if exists.
     // @TODO: or create new session 
-    std::cout << "Current Page: " << "@currentpage" << "/" << "@totalnumberofbages" << std::endl;
+    std::cout << "* Current Page: " << "@currentpage" << "/" << "@totalnumberofbages" << std::endl;
     std::cout << "@pagecontent" << std::endl;
 
 
@@ -181,13 +227,13 @@ void BookReaderView::openReadingSession() {
         switch (book_menu_opt) {
             case 1:
                 // @TODO: get next page
-                std::cout << "Current Page: " << "@currentpage" << "/" << "@totalnumberofbages" << std::endl;
+                std::cout << "* Current Page: " << "@currentpage" << "/" << "@totalnumberofbages" << std::endl;
                 std::cout << "@pagecontent" << std::endl;
                 break;
 
             case 2:
                 // @TODO: get pervious page
-                std::cout << "Current Page: " << "@currentpage" << "/" << "@totalnumberofbages" << std::endl;
+                std::cout << "* Current Page: " << "@currentpage" << "/" << "@totalnumberofbages" << std::endl;
                 std::cout << "@pagecontent" << std::endl;
                 break;
             case 3:

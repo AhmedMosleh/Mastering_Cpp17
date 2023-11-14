@@ -14,6 +14,12 @@ class CustomersManager {
     
     void viewProfile();
 
+    void addCustomer(const Customer & temp);
+
+    bool isCustomerExists(std::string str_temp);
+    Customer* customerLogin(std::string str_temp,int pws);
+
+
 };
 
 

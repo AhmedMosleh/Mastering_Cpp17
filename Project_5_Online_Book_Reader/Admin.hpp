@@ -13,7 +13,7 @@ class Admin {
 
 
     public:
-    Admin();
+    // Admin();
     
     void viewProfile();
 

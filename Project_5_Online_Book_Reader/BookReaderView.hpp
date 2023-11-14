@@ -3,25 +3,41 @@
 #include <iostream>
 #include <vector>
 #include "BookReaderModel.hpp"
+// #include "Customer.hpp"
 
 
 
 class BookReaderView { 
     private:
-    // BookReaderModel book_reader_model;
+    // temp variables to create/read/update/delete from model
+    Customer temp_customer;
+    Admin temp_admin;
+    Book temp_book;
+    BookReaderModel book_reader_model;
+    Customer* customer_user;
+    Admin* admin_user;
+
     int userType;
     int loggingType;
     int menuOption;
     bool is_logout;
     //could change:
     std::string userName;
+
+    // private functions
+    void login();
+    void signUp();
+    void customerLogin(std::string str_temp,int pws);
+    void customerSignUp();
+    void adminLogin(std::string str_temp,int pws);
+    void adminSignUp();
+
     public:
-    // BookReaderView();
+    BookReaderView();
     
     void mainMenu();
     // select sign up/login
-    void login();
-    void signUp();
+
     // admin/customer menu
     void userMainMenu();
     void customerViewMenu();
@@ -32,15 +48,8 @@ class BookReaderView {
     void listBooksMenu();
     void openReadingSession();
     void addBook();
-
     void run();
-
-    
-
 };
 
-// loging mechanism:
-// mainLogin() > (loggingMenu() => login() ) > (viewMainMenu => customerViewMenu()) => listReadingHistoryMenu()
-//                              => signup()                  => adminViewMenu()     => listBooksMenu()
 
 # endif

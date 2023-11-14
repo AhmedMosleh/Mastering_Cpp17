@@ -18,8 +18,11 @@ class BookReaderModel {
     BookReaderModel();
     
     void addAdmin();
-    void addCustomer();
+    void addCustomer(const Customer &temp);
     void addBook();
+
+    bool isCustomerExists(std::string str_temp);
+    Customer* customerLogin(std::string str_temp,int paw_temp);
 
     
 

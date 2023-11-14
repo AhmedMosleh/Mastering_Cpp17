@@ -11,7 +11,7 @@ class AdminsManager {
 
 
     public:
-    AdminsManager();
+    // AdminsManager();
     
     void viewProfile();
 
