@@ -9,7 +9,9 @@ void BookReaderModel::addCustomer(const Customer &temp) {
     customer_manager.addCustomer(temp);
 }
 
-
+void BookReaderModel::addAdmin(const Admin &temp) {
+    admins_manager.addAdmin(temp);
+}
 bool BookReaderModel::isCustomerExists(std::string str_temp) {
 
     return 0;

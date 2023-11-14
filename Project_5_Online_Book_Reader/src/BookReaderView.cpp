@@ -71,14 +71,47 @@ void BookReaderView::customerLogin(std::string str_temp,int pws) {
 }
 
 void BookReaderView::adminLogin(std::string str_temp,int pws) {
-    customer_user = book_reader_model.customerLogin(str_temp, pws);
-    if(customer_user == nullptr) {
+    admin_user = book_reader_model.adminLogin(str_temp, pws);
+    if(admin_user == nullptr) {
         std::cout << "* NOT FOUND!!" << std::endl;
     }
 }
 
 
 void BookReaderView::signUp() {
+
+    if(userType == 1) {
+        customerSignUp();
+    }
+    else {
+        adminSignUp();
+    }
+
+}
+
+void BookReaderView::adminSignUp() {
+    std::string str_temp {""};
+    int pws {};
+    std::cout << "- Enter user name (no spaces): ";
+    std::cin >> str_temp;
+    temp_admin.setUserName(str_temp);
+
+    std::cout << "- Enter password (no spaces): ";
+    std::cin >> pws;
+    temp_admin.setPassword(pws);  
+
+    std::cout << "- Enter name (no spaces): ";
+    std::cin >> str_temp;
+    temp_admin.setName(str_temp);
+
+    std::cout << "- Enter email (no spaces): ";
+    std::cin >> str_temp;
+    temp_admin.setEmail(str_temp);
+    book_reader_model.addAdmin(temp_admin);
+    adminLogin(temp_admin.getUserName(),pws);
+}
+
+void BookReaderView::customerSignUp() {
     std::string str_temp {""};
     int pws {};
     std::cout << "- Enter user name (no spaces): ";
@@ -97,21 +130,6 @@ void BookReaderView::signUp() {
     std::cin >> str_temp;
     temp_customer.setEmail(str_temp);
 
-    if(userType == 1) {
-        customerSignUp(str_temp, pws);
-    }
-    else {
-        adminSignUp(str_temp, pws);
-    }
-
-}
-
-void BookReaderView::adminSignUp(std::string str_temp,int pws) {
-    book_reader_model.addCustomer(temp_customer);
-    customerLogin(temp_customer.getUserName(),pws);
-}
-
-void BookReaderView::customerSignUp(std::string str_temp,int pws) {
     book_reader_model.addCustomer(temp_customer);
     adminLogin(temp_customer.getUserName(),pws);
 }

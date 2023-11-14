@@ -17,7 +17,7 @@ class BookReaderModel {
     public:
     BookReaderModel();
     
-    void addAdmin();
+    void addAdmin(const Admin &temp);
     void addCustomer(const Customer &temp);
     void addBook();
 
