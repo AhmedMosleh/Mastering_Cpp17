@@ -28,9 +28,9 @@ class BookReaderView {
     void login();
     void signUp();
     void customerLogin(std::string str_temp,int pws);
-    void customerSignUp();
+    void customerSignUp(std::string str_temp,int pws);
     void adminLogin(std::string str_temp,int pws);
-    void adminSignUp();
+    void adminSignUp(std::string str_temp,int pws);
 
     public:
     BookReaderView();

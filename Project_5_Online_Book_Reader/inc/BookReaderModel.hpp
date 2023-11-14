@@ -23,6 +23,8 @@ class BookReaderModel {
 
     bool isCustomerExists(std::string str_temp);
     Customer* customerLogin(std::string str_temp,int paw_temp);
+    Admin* adminLogin(std::string str_temp,int paw_temp);
+
 
     
 

@@ -11,8 +11,12 @@ class AdminsManager {
 
 
     public:
-    // AdminsManager();
+    AdminsManager();
     
+    void addAdmin(const Admin & temp);
+
+    bool isAdminExists(std::string str_temp);
+    Admin* adminLogin(std::string str_temp,int pws);
     void viewProfile();
 
 };

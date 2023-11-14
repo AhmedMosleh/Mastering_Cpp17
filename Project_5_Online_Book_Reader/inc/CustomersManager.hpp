@@ -18,7 +18,7 @@ class CustomersManager {
 
     bool isCustomerExists(std::string str_temp);
     Customer* customerLogin(std::string str_temp,int pws);
-
+    
 
 };
 

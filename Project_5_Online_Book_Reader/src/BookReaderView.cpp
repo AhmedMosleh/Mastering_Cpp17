@@ -69,26 +69,25 @@ void BookReaderView::customerLogin(std::string str_temp,int pws) {
         std::cout << "* NOT FOUND!!" << std::endl;
     }
 }
-void BookReaderView::customerSignUp() {
 
-}
 void BookReaderView::adminLogin(std::string str_temp,int pws) {
-
+    customer_user = book_reader_model.customerLogin(str_temp, pws);
+    if(customer_user == nullptr) {
+        std::cout << "* NOT FOUND!!" << std::endl;
+    }
 }
-void BookReaderView::adminSignUp() {
 
-}
 
 void BookReaderView::signUp() {
     std::string str_temp {""};
-    int temp {};
+    int pws {};
     std::cout << "- Enter user name (no spaces): ";
     std::cin >> str_temp;
     temp_customer.setUserName(str_temp);
 
     std::cout << "- Enter password (no spaces): ";
-    std::cin >> temp;
-    temp_customer.setPassword(temp);  
+    std::cin >> pws;
+    temp_customer.setPassword(pws);  
 
     std::cout << "- Enter name (no spaces): ";
     std::cin >> str_temp;
@@ -98,11 +97,24 @@ void BookReaderView::signUp() {
     std::cin >> str_temp;
     temp_customer.setEmail(str_temp);
 
-    book_reader_model.addCustomer(temp_customer);
-    customerLogin(temp_customer.getUserName(),temp);
+    if(userType == 1) {
+        customerSignUp(str_temp, pws);
+    }
+    else {
+        adminSignUp(str_temp, pws);
+    }
+
 }
 
+void BookReaderView::adminSignUp(std::string str_temp,int pws) {
+    book_reader_model.addCustomer(temp_customer);
+    customerLogin(temp_customer.getUserName(),pws);
+}
 
+void BookReaderView::customerSignUp(std::string str_temp,int pws) {
+    book_reader_model.addCustomer(temp_customer);
+    adminLogin(temp_customer.getUserName(),pws);
+}
 
 void BookReaderView::userMainMenu() {
 
@@ -142,7 +154,7 @@ void BookReaderView::customerViewMenu() {
 };
 
 void BookReaderView::adminViewMenu() {
-    std::cout << "* Hello " << userName << " | Admin View" << std::endl;
+    std::cout << "* Hello " << admin_user->getName() << " | Admin View" << std::endl;
 
     while(true) {
         std::cout << std::endl << "****************** ADMIN MENU ******************" << std::endl

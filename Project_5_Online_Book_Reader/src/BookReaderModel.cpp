@@ -19,3 +19,8 @@ bool BookReaderModel::isCustomerExists(std::string str_temp) {
 Customer* BookReaderModel::customerLogin(std::string str_temp,int paw_temp) {
     return customer_manager.customerLogin(str_temp, paw_temp);
 }
+
+
+Admin* BookReaderModel::adminLogin(std::string str_temp,int paw_temp) {
+    return admins_manager.adminLogin(str_temp, paw_temp);
+}
