@@ -1,5 +1,5 @@
-#include "BookReaderView.hpp"
-#include "BookReaderModel.hpp"
+#include "../inc/BookReaderView.hpp"
+#include "../inc/BookReaderModel.hpp"
 #include <functional>
 
 BookReaderView::BookReaderView(): customer_user(nullptr), admin_user(nullptr) {

@@ -1,4 +1,4 @@
-#include "BookReaderView.hpp"
+#include "../inc/BookReaderView.hpp"
 
 
 int main() {

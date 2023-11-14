@@ -1,5 +1,5 @@
-#include "CustomersManager.hpp"
-#include "Customer.hpp"
+#include "../inc/CustomersManager.hpp"
+#include "../inc/Customer.hpp"
 
 CustomersManager::CustomersManager() {
 

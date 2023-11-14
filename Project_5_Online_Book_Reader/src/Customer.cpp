@@ -1,4 +1,4 @@
-#include "Customer.hpp"
+#include "../inc/Customer.hpp"
 
 Customer::Customer() {
 
@@ -22,4 +22,21 @@ void Customer::setEmail(std::string _email) {
 }
 void Customer::setPassword(int _pws) {
     this->password = _pws;
+}
+
+std::string Customer::getUserName() const {
+    return this->userName;
+}
+std::string Customer::getName() const {
+    return this->name;
+
+}
+std::string Customer::getEmail() const {
+    return this->email;
+
+}
+// int getPassword();
+bool Customer::checkPassword(int pws) const {
+    return (this->password == pws);
+    
 }

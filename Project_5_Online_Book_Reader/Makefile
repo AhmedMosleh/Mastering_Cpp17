@@ -3,7 +3,7 @@
 CXX := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra
 
-SRC_DIR := .
+SRC_DIR := src
 OBJ_DIR := obj
 BIN_DIR := bin
 

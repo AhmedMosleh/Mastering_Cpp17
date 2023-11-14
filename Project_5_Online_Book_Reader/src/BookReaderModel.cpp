@@ -1,4 +1,4 @@
-#include "BookReaderModel.hpp"
+#include "../inc/BookReaderModel.hpp"
 
 BookReaderModel::BookReaderModel() {
 

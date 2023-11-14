@@ -1,5 +1,5 @@
-#include "AdminsManager.hpp"
-#include "Admin.hpp"
+#include "../inc/AdminsManager.hpp"
+
 
 AdminsManager::AdminsManager() { }
 
