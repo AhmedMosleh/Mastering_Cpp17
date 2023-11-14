@@ -42,5 +42,13 @@ std::string Customer::getEmail() const {
 // int getPassword();
 bool Customer::checkPassword(int pws) const {
     return (this->password == pws);
+}
+
+
+void Customer::addReadingSession() {
     
+}
+
+int Customer::SessionNumber() {
+    return (int)reading_sessions.size();
 }

@@ -2,7 +2,8 @@
 # ifndef _CUSTOMER_
 # define _CUSTOMER_
 #include <iostream>
-
+#include <vector>
+#include "ReadingSession.hpp"
 
 class Customer { 
     private:
@@ -10,6 +11,9 @@ class Customer {
     std::string name;
     std::string email;
     int password;
+
+    std::vector<ReadingSession> reading_sessions;
+
 
 
     public:
@@ -29,7 +33,8 @@ class Customer {
     // int getPassword();
     bool checkPassword(int pws) const;
 
-
+    void addReadingSession();
+    int SessionNumber();
 };
 
 

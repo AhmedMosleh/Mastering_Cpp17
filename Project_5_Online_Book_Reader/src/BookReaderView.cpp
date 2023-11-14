@@ -230,9 +230,9 @@ void BookReaderView::listBooksMenu() {
 }
 
 void BookReaderView::listReadingHistoryMenu() {
-    // @TODO: cout the sessions 
+    // @TODO: 
     std::cout << "@coutthesessions" << std::endl;
-
+    
     std::cout << "* Which session to open?" << std::endl;
 
     // @TODO:
