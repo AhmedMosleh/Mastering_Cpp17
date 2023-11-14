@@ -14,6 +14,8 @@ class Admin {
 
     public:
     Admin();
+    Admin(std::string _userName,std::string _name, std::string _email, int _pws);
+    // Admin(const Admin &);
     
     void viewProfile();
 
@@ -28,6 +30,8 @@ class Admin {
     std::string getEmail() const;
     // int getPassword();
     bool checkPassword(int pws) const;
+
+    void addBook();
 
 };
 

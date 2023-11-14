@@ -14,7 +14,7 @@ class Customer {
 
     public:
     Customer();
-    
+    Customer(std::string _userName,std::string _name, std::string _email, int _pws);
     void viewProfile();
 
     void setCustomerData(const Customer & temp) ;

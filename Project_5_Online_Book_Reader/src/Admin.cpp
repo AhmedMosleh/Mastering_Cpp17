@@ -5,6 +5,12 @@ Admin::Admin() {
     
 }
 
+Admin::Admin(std::string _userName,std::string _name, std::string _email, int _pws): userName(_userName), name(_name), email(_email),password(_pws) {
+    
+}
+
+
+
 void Admin::viewProfile(){
 
 }
@@ -42,4 +48,9 @@ std::string Admin::getEmail() const {
 bool Admin::checkPassword(int pws) const {
     return (this->password == pws);
     
+}
+
+
+void Admin::addBook() {
+
 }

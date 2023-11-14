@@ -26,3 +26,16 @@ Customer* BookReaderModel::customerLogin(std::string str_temp,int paw_temp) {
 Admin* BookReaderModel::adminLogin(std::string str_temp,int paw_temp) {
     return admins_manager.adminLogin(str_temp, paw_temp);
 }
+
+
+void BookReaderModel::addBook(const Book &temp) {
+    books_manager.addBook(temp);
+}
+
+int BookReaderModel::booksCount() {
+    return books_manager.booksCount();
+}
+
+std::string BookReaderModel::getBookTitle(int i) {
+    return books_manager.getBookTitle(i);
+}

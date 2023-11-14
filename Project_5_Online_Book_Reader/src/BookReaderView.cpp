@@ -131,7 +131,7 @@ void BookReaderView::customerSignUp() {
     temp_customer.setEmail(str_temp);
 
     book_reader_model.addCustomer(temp_customer);
-    adminLogin(temp_customer.getUserName(),pws);
+    customerLogin(temp_customer.getUserName(),pws);
 }
 
 void BookReaderView::userMainMenu() {
@@ -188,7 +188,7 @@ void BookReaderView::adminViewMenu() {
                 viewProfile();
                 break;
             case 2:
-                addBook();
+                addBookView();
                 break;
             case 3:
                 // @TODO: logout
@@ -211,8 +211,14 @@ void BookReaderView::listBooksMenu() {
 
     // @TODO: print available books
 
+    int books_count = book_reader_model.booksCount();
+
+    for (int i = 1; i <= books_count; i++) {
+        std::cout << "|___ " << i << ". " << book_reader_model.getBookTitle(i) << std::endl;
+    }
+
     std::cout << "* Which book to read?" << std::endl;
-    std::cout << "- Enter number in range 1 - " << "@numberofbooks" << ": ";
+    std::cout << "- Enter number in range 1 - " << books_count << ": ";
 
     // @TODO: select a book
     int booknum {};
@@ -274,21 +280,33 @@ void BookReaderView::openReadingSession() {
     }
 }
 
-void BookReaderView::addBook() {
+void BookReaderView::addBookView() {
+    std::string temp_str {""};
     std::cout << "- Enter ISBN: ";
-    // std::cin >>
+    std::cin >> temp_str;
+    temp_book.setTitle(temp_str);
 
     std::cout << "- Enter Title: ";
-    // std::cin >>
+    std::cin >> temp_str;
+    temp_book.setTitle(temp_str);
 
     std::cout << "- Enter Author Name: ";
-    // std::cin >>
+    std::cin >> temp_str;
+    temp_book.setAuthor(temp_str);
 
+    int pagNums {};
     std::cout << "- Enter How many pages: ";
-    // std::cin >>
+    std::cin >> pagNums;
+
 
     // for loop:
-    std::cout << "- Enter page # " << "@i" << ": ";
-    // std::cin >>
+    for (int i = 1; i <= pagNums; i++) {
+        std::cout << "- Enter page # " << i << ": ";
+        std::cin >> temp_str;
+        temp_book.addPage(temp_str);
+    }
+
+    book_reader_model.addBook(temp_book);
+
     
 }

@@ -10,9 +10,16 @@ class BooksManager {
 
 
     public:
-    // BooksManager();
+    BooksManager();
+
+
     
-    void viewProfile();
+    void addBook(const Book &temp);
+    Book getBook();
+    int booksCount();
+
+    std::string getBookTitle(int i);
+
 
 };
 

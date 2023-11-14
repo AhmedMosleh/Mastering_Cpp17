@@ -14,10 +14,18 @@ class Book {
 
 
     public:
-    // Book();
-    
-    void viewProfile();
+    Book();
+    Book(std::string _title, std::string _author, std::vector<std::string> _pages);
 
+
+    void setTitle(std::string);
+    void setAuthor(std::string);
+    void setPages(std::string);
+    void addPage(std::string);
+
+    std::string getTitle() const;
+    std::string getAuthor() const; 
+    std::string getPage(int i) const;
 };
 
 

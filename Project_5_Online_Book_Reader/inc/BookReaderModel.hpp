@@ -19,11 +19,17 @@ class BookReaderModel {
     
     void addAdmin(const Admin &temp);
     void addCustomer(const Customer &temp);
-    void addBook();
+    void addBook(const Book &temp);
+
+    // Book view
+    std::string getBookTitle(int i);
+
+    int booksCount();
 
     bool isCustomerExists(std::string str_temp);
     Customer* customerLogin(std::string str_temp,int paw_temp);
     Admin* adminLogin(std::string str_temp,int paw_temp);
+
 
 
     

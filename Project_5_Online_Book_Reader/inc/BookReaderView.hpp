@@ -47,7 +47,7 @@ class BookReaderView {
     void listReadingHistoryMenu();
     void listBooksMenu();
     void openReadingSession();
-    void addBook();
+    void addBookView();
     void run();
 };
 

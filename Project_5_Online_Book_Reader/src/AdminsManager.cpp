@@ -1,7 +1,9 @@
 #include "../inc/AdminsManager.hpp"
 
 
-AdminsManager::AdminsManager() { }
+AdminsManager::AdminsManager() { 
+    addAdmin(Admin("ahmed","ahmed_mostafa","ahmed@gmail",1234));
+}
 
 void AdminsManager::addAdmin(const Admin & temp) { 
     admins.push_back(temp);

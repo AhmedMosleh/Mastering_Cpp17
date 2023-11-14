@@ -2,7 +2,7 @@
 #include "../inc/Customer.hpp"
 
 CustomersManager::CustomersManager() {
-
+    addCustomer(Customer("ali","ali_mostafa","ali@gmail",1212));
 }
 
 void CustomersManager::addCustomer(const Customer & temp) {

@@ -4,6 +4,10 @@ Customer::Customer() {
 
 }
 
+Customer::Customer(std::string _userName,std::string _name, std::string _email, int _pws): userName(_userName), name(_name), email(_email),password(_pws) {
+    
+}
+
 void Customer::setCustomerData(const Customer & temp) {
     this->name = temp.name; 
     this->userName = temp.userName;
