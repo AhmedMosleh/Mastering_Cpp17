@@ -24,7 +24,7 @@ This console app lets users read books online, tracking their sessions. Admins a
 ## Getting Started
 1. Clone: `git clone https://github.com/your-username/online-book-reader.git`
 2. Navigate: `cd online-book-reader`
-3. Run: `python main.py`
+3. Run: `make run1`
 
 ## Future Features
 - **Admin:**
